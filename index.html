@@ -3,33 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Midnight Chaser — Puzzle</title>
-
+  <title>MapleTool — Home</title>
+  <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <h1>Midnight Chaser <small>drag to rearrange</small></h1>
 
-    <section class="toolbar">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">
+      <img src="images/icon.png" alt="" class="brand__logo">
+      <div class="brand__text">
+        <strong>MapleTool</strong>
+        <span>All in one helper</span>
+      </div>
+    </a>
 
-      <button id="reset">Reset</button>
+    <nav class="side-nav">
+      <a href="index.html" class="nav-item">Home</a>
+      <a href="chaser.html" class="nav-item">Midnight Chaser</a>
+    </nav>
+
+   <div class="side-time">
+  <div><strong>Local:</strong> <span id="local-time">--:--:--</span></div>
+  <div><strong>UTC:</strong> <span id="utc-time">--:--:--</span></div>
+</div>
+
+
+  </aside>
+
+  <main class="main">
+    <section class="hero">
+      <h1 class="hero__title">Welcome to <span class="accent">MapleTool</span></h1>
+      <p class="hero__text">
+        Track, practice, and optimize MapleStory tasks. Start with the
+        Midnight Chaser puzzle helper.
+      </p>
+      <p><a href="chaser.html" class="btn-primary">Open Puzzle →</a></p>
     </section>
 
-    <div class="grid" id="grid">
+    <section class="cards">
+      <article class="card">
+        <h3>Midnight Chaser</h3>
+        <p>Drag-and-drop practice for the 3×3 room puzzle.</p>
+        <a href="chaser.html" class="btn-ghost">Explore Tool →</a>
+      </article>
 
-      <div class="grid__container"><div class="grid__element"><img src="images/1.png" alt="1" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/2.png" alt="2" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/3.png" alt="3" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/4.png" alt="4" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/5.png" alt="5" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/6.png" alt="6" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/7.png" alt="7" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/8.png" alt="8" /></div></div>
-      <div class="grid__container"><div class="grid__element"><img src="images/9.png" alt="9" /></div></div>
-    </div>
+      <article class="card card--disabled">
+        <h3>Boss Tracker</h3>
+        <p>(Coming soon) Plan weekly bosses and meso earnings.</p>
+        <button class="btn-ghost" disabled>Soon</button>
+      </article>
+
+      <article class="card card--disabled">
+        <h3>Daily Tracker</h3>
+        <p>(Coming soon) Keep up with your routine.</p>
+        <button class="btn-ghost" disabled>Soon</button>
+      </article>
+    </section>
   </main>
-
 <script src="main.js"></script>
+<script>
+  // highlight the current nav link automatically
+  document.addEventListener("DOMContentLoaded", () => {
+    const path = location.pathname.split("/").pop(); // e.g. "chaser.html"
+    document.querySelectorAll(".side-nav .nav-item").forEach(link => {
+      const href = link.getAttribute("href");
+      link.classList.toggle("active", href === path);
+    });
+  });
+</script>
+
+
 </body>
 </html>
